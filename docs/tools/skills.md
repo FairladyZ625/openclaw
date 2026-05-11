@@ -66,6 +66,37 @@ By default, `clawhub` installs into `./skills` under your current working
 directory (or falls back to the configured OpenClaw workspace). OpenClaw picks
 that up as `<workspace>/skills` on the next session.
 
+## Open Agent Skills CLI
+
+This repository's bundled `skills/` directory and plugin skill directories are
+also discoverable through the open Agent Skills CLI. This is useful when you
+want to reuse OpenClaw skill instructions in another agent host.
+
+Preview the current installable list:
+
+```bash
+npx skills add FairladyZ625/openclaw --list
+```
+
+Install one skill into the current project:
+
+```bash
+npx skills add FairladyZ625/openclaw --skill github
+```
+
+Install one skill into Codex globally:
+
+```bash
+npx skills add FairladyZ625/openclaw \
+  --skill github \
+  --agent codex \
+  --global \
+  -y
+```
+
+Use ClawHub or `openclaw skills` for OpenClaw-managed runtime skills. Use
+`npx skills add` when the target is a non-OpenClaw Agent Skills host.
+
 ## Security notes
 
 - Treat third-party skills as **untrusted code**. Read them before enabling.

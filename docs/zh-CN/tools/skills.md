@@ -60,6 +60,36 @@ ClawHub 是 OpenClaw 的公共 Skills 注册表。浏览 https://clawhub.com。�
 
 默认情况下，`clawhub` 安装到当前工作目录下的 `./skills`（或回退到配置的 OpenClaw 工作区）。OpenClaw 在下一个会话中将其识别为 `<workspace>/skills`。
 
+## Open Agent Skills CLI
+
+本仓库内置的 `skills/` 目录以及插件 Skill 目录也可以被开放 Agent Skills
+CLI 发现。这个入口适合把 OpenClaw 的 Skill 指令复用到其他 Agent host。
+
+预览当前可安装列表：
+
+```bash
+npx skills add FairladyZ625/openclaw --list
+```
+
+安装一个 Skill 到当前项目：
+
+```bash
+npx skills add FairladyZ625/openclaw --skill github
+```
+
+安装一个 Skill 到 Codex 全局目录：
+
+```bash
+npx skills add FairladyZ625/openclaw \
+  --skill github \
+  --agent codex \
+  --global \
+  -y
+```
+
+OpenClaw 运行时托管的 Skills 仍应使用 ClawHub 或 `openclaw skills`。目标是非
+OpenClaw 的 Agent Skills host 时，再使用 `npx skills add`。
+
 ## 安全注意事项
 
 - 将第三方 Skills 视为**不受信任的代码**。启用前请阅读它们。

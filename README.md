@@ -15,6 +15,7 @@
   <a href="https://github.com/openclaw/openclaw/actions/workflows/ci.yml?branch=main"><img src="https://img.shields.io/github/actions/workflow/status/openclaw/openclaw/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>
   <a href="https://github.com/openclaw/openclaw/releases"><img src="https://img.shields.io/github/v/release/openclaw/openclaw?include_prereleases&style=for-the-badge" alt="GitHub release"></a>
   <a href="https://discord.gg/clawd"><img src="https://img.shields.io/discord/1456350064065904867?label=Discord&logo=discord&logoColor=white&color=5865F2&style=for-the-badge" alt="Discord"></a>
+  <a href="https://skills.sh/FairladyZ625/openclaw"><img src="https://skills.sh/b/FairladyZ625/openclaw" alt="Agent Skills"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
 </p>
 
@@ -266,6 +267,36 @@ Details: [Session tools](https://docs.openclaw.ai/concepts/session-tool)
 ClawHub is a minimal skill registry. With ClawHub enabled, the agent can search for skills automatically and pull in new ones as needed.
 
 [ClawHub](https://clawhub.com)
+
+### Open Agent Skills CLI
+
+OpenClaw's bundled `skills/` and plugin skill directories are compatible with
+the open Agent Skills ecosystem. Agents outside OpenClaw can preview and install
+them with `npx skills add`:
+
+```bash
+npx skills add FairladyZ625/openclaw --list
+```
+
+Install one skill into the current project:
+
+```bash
+npx skills add FairladyZ625/openclaw --skill github
+```
+
+Install one skill into Codex globally:
+
+```bash
+npx skills add FairladyZ625/openclaw \
+  --skill github \
+  --agent codex \
+  --global \
+  -y
+```
+
+This is separate from OpenClaw's runtime skill management. Normal OpenClaw users
+should keep using `openclaw onboard`, `openclaw skills`, and ClawHub for
+workspace-managed skills.
 
 ## Chat commands
 
